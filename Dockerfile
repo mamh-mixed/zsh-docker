@@ -22,7 +22,14 @@ COPY *.patch ./
 RUN for p in *.patch; do patch -s -p1 -r /dev/null -i $p || true; done
 
 RUN ./Util/preconfig
-RUN ./configure --prefix /usr \
+RUN build_platform=x86_64; \
+    case "$(dpkg --print-architecture)" in \
+      arm64) \
+        build_platform="aarch64" \
+        ;; \
+    esac; \
+    ./configure --build=${build_platform}-unknown-linux-gnu \
+                --prefix /usr \
                 --enable-pcre \
                 --enable-cap \
                 --enable-multibyte \
