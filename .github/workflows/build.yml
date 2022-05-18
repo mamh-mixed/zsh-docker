@@ -17,8 +17,10 @@ jobs:
           - docker-tags: 'master'
             zsh-ref: 'master'
           - docker-tags: |
-              5.8.1
+              5.9
               latest
+            zsh-ref: 'zsh-5.9'
+          - docker-tags: '5.8.1'
             zsh-ref: 'zsh-5.8.1'
           - docker-tags: '5.8'
             zsh-ref: 'zsh-5.8'
