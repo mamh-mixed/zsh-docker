@@ -142,7 +142,7 @@ jobs:
             org.opencontainers.image.licenses=https://raw.githubusercontent.com/zsh-users/zsh/master/LICENCE
 
       - name: Build and push image
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         timeout-minutes: 60
         with:
           context: .
